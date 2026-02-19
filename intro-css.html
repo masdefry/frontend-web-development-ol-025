@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro CSS</title>
+    <style>
+      /* Tag Selector */
+      h2 {
+        color: brown;
+        background-color: burlywood;
+      }
+
+      /* Id Selector */
+      #paragraph-01 {
+        font-size: 12px;
+        font-family:
+          'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: powderblue;
+      }
+
+      /* Class Selector */
+      .background-01 {
+        background-color: red;
+      }
+
+      .color-01 {
+        color: white;
+      }
+
+      h4{
+        color: salmon;
+      }
+    </style>
+    <link rel="stylesheet" href="external.css">
+  </head>
+  <body>
+    <!-- Inline Style -->
+    <h1 style="color: salmon; font-size: 38px; background-color: paleturquoise">
+      Purwadhika School
+    </h1>
+
+    <!-- 
+        Internal Style:
+        1. Tag Selector
+        2. Id Selector
+        3. Class Selector 
+    -->
+    <h2>Timnas Indonesia</h2>
+    <h2>Timnas Malaysia</h2>
+    <p id="paragraph-01">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum rem nulla
+      autem illum dolor repellat enim voluptates hic consectetur dicta inventore
+      praesentium quos adipisci eaque temporibus nesciunt eos, neque delectus?
+    </p>
+    <button class="background-01 color-01">Login</button>
+    <p id="paragraph-01">Hello world</p>
+
+    <h3 id="purwadhika">Purwadhika Digital School</h3>
+
+    <h4>Indosiar</h4>
+
+    <!-- CSS Specificity -->
+     <h5 style="color: green">Hello World</h5>
+  </body>
+</html>
