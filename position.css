@@ -1,0 +1,37 @@
+#relative > div {
+  width: 150px;
+  height: 150px;
+  background-color: salmon;
+}
+
+#relative > div:nth-child(2) {
+  background-color: plum;
+  position: relative;
+  top: 30px;
+  left: 150px;
+}
+
+#absolute {
+  background-color: gray;
+  position: relative;
+}
+
+#absolute > div {
+  width: 150px;
+  height: 150px;
+  background-color: yellow;
+}
+
+#absolute > div:nth-child(2) {
+  background-color: purple;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+#navbar {
+  background-color: gray;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}

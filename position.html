@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro to Position CSS</title>
+    <link rel="stylesheet" href="position.css" />
+  </head>
+  <body>
+    <!-- 
+        RELATIVE
+
+        1. Akan berpindah terhadap posisi semula
+        2. Ketika berpindah, akan meninggalkan celah kosong
+        3. Untuk dapat menggunakan position relative, 
+        diharuskan untuk menggunakan salah 1 property yaitu 
+        top, right, bottom, left
+    -->
+    <section id="relative">
+      <div>Box-01</div>
+      <div>Box-02</div>
+      <div>Box-03</div>
+    </section>
+
+    <!-- 
+        ABSOLUTE
+
+        1. Akan berpindah terhadap parent nya 
+        yg memiliki position non-static
+        2. Ketika tidak ada parent yg memiliki position non-static, 
+        akan berpindah terhadap viewport
+        3. Ketika berpindah, tidak meninggalkan celah kosong
+        4. Untuk dapat menggunakan position absolute, 
+        diharuskan untuk menggunakan salah 1 property 
+        yaitu top, right, bottom, left
+    -->
+    <h1>Position Absolute</h1>
+    <section id="absolute">
+      <div>Box-01</div>
+      <div>Box-02</div>
+      <div>Box-03</div>
+    </section>
+
+    <!-- 
+        FIXED
+
+        1. Relatif terhadap viewport
+        2. Tidak akan berpindah meskipun user melakukan scroll
+    -->
+    <nav id="navbar">
+        <h1>tokopedia</h1>
+    </nav>
+  </body>
+</html>

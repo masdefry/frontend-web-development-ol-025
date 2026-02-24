@@ -1,0 +1,27 @@
+#container-01 {
+  height: 100vh;
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#challenge-01 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  gap: 10px;
+  height: 100vh;
+}
+
+#challenge-01 > div {
+  background-color: salmon;
+}
+
+#challenge-01 > div:nth-child(1) {
+  grid-column: 1/3;
+}
+
+#challenge-01 > div:nth-child(4) {
+  grid-column: 1/3;
+}
