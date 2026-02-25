@@ -1,4 +1,4 @@
-function CardProgram() {
+function CardProgram(props: any) {
   return (
     <div
       style={{
@@ -9,11 +9,11 @@ function CardProgram() {
     >
       <div style={{ backgroundColor: 'red', height: '200px' }}>
         <img
-          src='https://unair.ac.id/wp-content/uploads/2022/08/kucing.jpg'
+          src={props?.imageUrl}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
-      <h3>Nama Program</h3>
+      <h1>{props?.programName}</h1>
       <span>Online</span>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quod
