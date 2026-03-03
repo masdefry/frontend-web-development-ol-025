@@ -1,6 +1,16 @@
 import { FaMoon } from 'react-icons/fa';
+import { use, useRef, useState } from 'react';
 
 export default function App() {
+  const inputTodo = useRef<HTMLInputElement>(null);
+  const [todoList, setTodoList] = useState<string[]>([]);
+
+  const onHandleAddTodo = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event?.key === 'Enter' && inputTodo?.current?.value !== undefined) {
+      setTodoList([...todoList, inputTodo?.current?.value]);
+    }
+  };
+
   return (
     <div className='min-h-screen bg-gray-200'>
       {/* Section-01: Hero/Banner */}
@@ -20,20 +30,30 @@ export default function App() {
               className='radio'
               defaultChecked
             />
-            <input type='search' required placeholder='Search' />
+            <input
+              type='text'
+              required
+              placeholder='Add new todo'
+              ref={inputTodo}
+              onKeyDown={onHandleAddTodo}
+            />
           </label>
 
           {/* Section-03: Todo List */}
           <div className='bg-white rounded-md w-xl p-5 flex flex-col gap-3'>
-            <div className='flex items-center gap-2 border-b border-gray-300 p-2'>
-              <input
-                type='radio'
-                name='radio-1'
-                className='radio'
-                defaultChecked
-              />
-              <h2>Nobar Timnas Indonesia Fifa Series</h2>
-            </div>
+            {todoList?.map((item, index) => {
+              return (
+                <div className='flex items-center gap-2 border-b border-gray-300 p-2' key={index}>
+                  <input
+                    type='radio'
+                    name='radio-1'
+                    className='radio'
+                    defaultChecked
+                  />
+                  <h2>{item}</h2>
+                </div>
+              );
+            })}
             <div className='flex justify-between items-center text-sm text-gray-400'>
               <h3>5 items left</h3>
               <div className='flex items-center gap-3'>
