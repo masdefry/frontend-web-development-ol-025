@@ -1,14 +1,37 @@
 import { FaMoon } from 'react-icons/fa';
-import { use, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+
+type Todo = {
+  todo: string;
+  isCompleted: boolean;
+};
 
 export default function App() {
   const inputTodo = useRef<HTMLInputElement>(null);
-  const [todoList, setTodoList] = useState<string[]>([]);
+  const [todoList, setTodoList] = useState<Todo[]>([]);
+  /*
+    [
+      {
+        todo: 'Makan', 
+        isCompleted: false
+      }
+    ]
+  */
 
   const onHandleAddTodo = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event?.key === 'Enter' && inputTodo?.current?.value !== undefined) {
-      setTodoList([...todoList, inputTodo?.current?.value]);
+      setTodoList([
+        ...todoList,
+        { todo: inputTodo?.current?.value, isCompleted: false },
+      ]);
+      inputTodo.current.value = '';
     }
+  };
+
+  const onHandleCompleteTodo = (index: number) => {
+    const currentTodoList = [...todoList];
+    currentTodoList[index].isCompleted = true;
+    setTodoList(currentTodoList);
   };
 
   return (
@@ -24,12 +47,7 @@ export default function App() {
           </div>
           {/* Section-02: Todos */}
           <label className='input w-xl'>
-            <input
-              type='radio'
-              name='radio-1'
-              className='radio'
-              defaultChecked
-            />
+            <input type='radio' name='radio-1' className='radio' />
             <input
               type='text'
               required
@@ -43,14 +61,23 @@ export default function App() {
           <div className='bg-white rounded-md w-xl p-5 flex flex-col gap-3'>
             {todoList?.map((item, index) => {
               return (
-                <div className='flex items-center gap-2 border-b border-gray-300 p-2' key={index}>
+                <div
+                  className='flex items-center gap-2 border-b border-gray-300 p-2'
+                  key={index}
+                >
                   <input
                     type='radio'
                     name='radio-1'
                     className='radio'
-                    defaultChecked
+                    onClick={() => onHandleCompleteTodo(index)}
                   />
-                  <h2>{item}</h2>
+                  <h2 className='text-black'>
+                    {item?.isCompleted === true ? (
+                      <del>{item?.todo}</del>
+                    ) : (
+                      <p>{item?.todo}</p>
+                    )}
+                  </h2>
                 </div>
               );
             })}
