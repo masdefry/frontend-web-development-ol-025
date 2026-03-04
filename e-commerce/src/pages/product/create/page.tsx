@@ -6,20 +6,37 @@ export default function CreateProductPage() {
   const onHandleSubmit = (event: any) => {
     event?.preventDefault(); // Menghindari supaya form tidak me-refresh halaman
 
-    // Local Storage
     const product = inputProduct?.current?.value;
+    
+    // Local Storage
+    // if (product)
+    //   localStorage.setItem(
+    //     'product',
+    //     JSON.stringify({ name: inputProduct?.current?.value }),
+    //   );
 
-    if (product)
-      localStorage.setItem(
-        'product',
-        JSON.stringify({ name: inputProduct?.current?.value }),
-      );
+    // Session Storage
+    // if(product){
+    //     sessionStorage.setItem(
+    //         'product', 
+    //         JSON.stringify({name: product})
+    //     )
+    // }
+
+    // Cookies
+    if(product){
+        document.cookie=`product={name: ${product}`
+    }
 
     alert('Save product successful');
   };
 
   const onHandleDeleteStorage = () => {
-    localStorage.removeItem('product');
+    // LocalStorage
+    // localStorage.removeItem('product');
+
+    // SessionStorage
+    // sessionStorage.removeItem('product')
   };
 
   return (
