@@ -1,4 +1,8 @@
+import useTotalCartStore from '../../stores/useTotalCartStore';
+
 export default function ProductCard(props: any) {
+  const { setTotalCarts } = useTotalCartStore();
+
   return (
     <div
       className='card bg-base-100 col-span-1 shadow-sm'
@@ -21,7 +25,7 @@ export default function ProductCard(props: any) {
           title and actions parts
         </p>
         <div className='card-actions justify-end'>
-          <button className='btn btn-primary' onClick={props?._setTotalCarts}>
+          <button className='btn btn-primary' onClick={setTotalCarts}>
             Add to Cart
           </button>
         </div>

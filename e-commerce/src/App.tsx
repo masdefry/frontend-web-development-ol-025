@@ -19,16 +19,10 @@ const products = [
   },
 ];
 function App() {
-  const [totalCarts, setTotalCarts] = useState<number>(0);
-
-  const onHandleAddToCart = () => {
-    setTotalCarts(totalCarts + 1);
-  };
-
   return (
     <>
       {/* Product List */}
-      <ProductList _products={products} _setTotalCarts={onHandleAddToCart} />
+      <ProductList _products={products} />
     </>
   );
 }

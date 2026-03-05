@@ -1,7 +1,11 @@
 import { LuShoppingCart } from 'react-icons/lu';
 import { RiArrowDropRightLine } from 'react-icons/ri';
+import useTotalCartStore from '../../stores/useTotalCartStore';
 
 export default function Navbar(props: any) {
+
+  const {totalCarts} = useTotalCartStore()
+
   return (
     <nav>
       {/* Top */}
@@ -42,7 +46,7 @@ export default function Navbar(props: any) {
         </label>
         <LuShoppingCart className='text-3xl' />
         <span className='bg-red-500 text-white rounded-full px-2'>
-          {props?._totalCarts}
+          {totalCarts}
         </span>
         <div className='flex items-center gap-1'>
           <button className='btn btn-active btn-success'>Login</button>
