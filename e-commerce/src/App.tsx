@@ -1,7 +1,6 @@
-import { useState } from "react";
-import Navbar from "./components/product/Navbar";
-import ProductList from "./components/product/ProductList";
-
+import { useState } from 'react';
+import Navbar from './components/product/Navbar';
+import ProductList from './components/product/ProductList';
 
 const products = [
   {
@@ -23,14 +22,11 @@ function App() {
   const [totalCarts, setTotalCarts] = useState<number>(0);
 
   const onHandleAddToCart = () => {
-    setTotalCarts(totalCarts + 1)
-  }
+    setTotalCarts(totalCarts + 1);
+  };
 
   return (
     <>
-      {/* Navbar */}
-      <Navbar _totalCarts={totalCarts} />
-
       {/* Product List */}
       <ProductList _products={products} _setTotalCarts={onHandleAddToCart} />
     </>
