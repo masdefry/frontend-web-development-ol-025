@@ -1,10 +1,11 @@
 import { LuShoppingCart } from 'react-icons/lu';
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import useTotalCartStore from '../../stores/useTotalCartStore';
+import useAuthStore from '../../stores/useAuthStore';
 
 export default function Navbar(props: any) {
-
-  const {totalCarts} = useTotalCartStore()
+  const { totalCarts } = useTotalCartStore();
+  const { email } = useAuthStore();
 
   return (
     <nav>
@@ -49,8 +50,14 @@ export default function Navbar(props: any) {
           {totalCarts}
         </span>
         <div className='flex items-center gap-1'>
-          <button className='btn btn-active btn-success'>Login</button>
-          <button className='btn btn-active btn-success'>Register</button>
+          {email !== '' ? (
+            email
+          ) : (
+            <>
+              <button className='btn btn-active btn-success'>Login</button>
+              <button className='btn btn-active btn-success'>Register</button>
+            </>
+          )}
         </div>
       </div>
     </nav>

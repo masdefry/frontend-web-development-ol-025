@@ -25,7 +25,7 @@ export default function ProductCard(props: any) {
           title and actions parts
         </p>
         <div className='card-actions justify-end'>
-          <button className='btn btn-primary' onClick={setTotalCarts}>
+          <button className='btn btn-primary' onClick={() => setTotalCarts(1000)}>
             Add to Cart
           </button>
         </div>

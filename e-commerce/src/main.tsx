@@ -6,6 +6,7 @@ import CreateProductPage from './pages/product/create/page.tsx';
 import ProfilePage from './pages/profile/page.tsx';
 import RootLayout from './components/RootLayout.tsx';
 import CounterPage from './pages/counter/page.tsx';
+import LoginPage from './pages/login/page.tsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/counter',
         Component: CounterPage,
+      },
+      {
+        path: '/login',
+        Component: LoginPage,
       },
     ],
   },
