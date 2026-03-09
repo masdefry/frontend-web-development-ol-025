@@ -1,26 +1,35 @@
-import { useState } from 'react';
-import Navbar from './components/product/Navbar';
+import axios from 'axios';
 import ProductList from './components/product/ProductList';
+import { useEffect, useState } from 'react';
 
-const products = [
-  {
-    id: 1,
-    name: 'Minyak Sunco 2L Refill',
-    price: 40000,
-    imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjtCAsn4Pltg3IlQq4P7QN6mv4s3wbkMx46A&s',
-  },
-  {
-    id: 2,
-    name: 'Pop Mie Ayam Bawang',
-    price: 35000,
-    imageUrl:
-      'https://img.lazcdn.com/g/ff/kf/S570f44385c9d4617ab31a27b1e1eac48y.jpg_720x720q80.jpg',
-  },
-];
 function App() {
+  const [products, setProducts] = useState<any[]>([]);
+
+  const onGetProducts = async () => {
+    try {
+      const res = await axios.get(
+        'https://api.backendless.com/FE9C7CE4-1812-45EA-89E0-E802F281EA22/63B92181-93D4-46CD-B088-4A13AE8857E6/data/Products?pageSize=100&offset=0',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
+      setProducts(res?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log('useEffect')
+    onGetProducts();
+  }, []);
+
   return (
     <>
+    {console.log('render element')}
       {/* Product List */}
       <ProductList _products={products} />
     </>
